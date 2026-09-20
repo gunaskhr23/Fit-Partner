@@ -228,7 +228,7 @@
         <span class="dot"></span>
       </div>
       <button class="history-btn" id="historyBtn" title="History" aria-label="View question history" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/><path d="M12 7v5l3.5 2"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/><path d="M12 7v5l3 2"/></svg>
       </button>
     </div>
   </header>
@@ -264,7 +264,10 @@
 
 <script>
 /* ---------------- Config ---------------- */
-const BACKEND_URL = 'http://10.86.75.238:8000';
+// Use same-origin requests by default so the UI works behind a reverse proxy.
+// A deployment can set window.FIT_PARTNER_BACKEND_URL before this script loads
+// when the API is hosted separately, e.g. "https://api.example.com".
+const BACKEND_URL = (window.FIT_PARTNER_BACKEND_URL || '').replace(/\/$/, '');
 
 /* ---------------- Icon set (inline SVG, no external images/gifs) ---------------- */
 const ICONS = {
