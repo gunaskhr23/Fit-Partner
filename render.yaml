@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: fit-partner
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: OLLAMA_URL
+        sync: false
+      - key: OLLAMA_MODEL
+        value: coach-slm
+      - key: OLLAMA_FALLBACK_MODEL
+        value: llama3.2:3b
+      - key: ALLOWED_ORIGINS
+        value: "*"
+      - key: AUDIO_DIR
+        value: generated_audio
